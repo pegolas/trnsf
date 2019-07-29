@@ -62,16 +62,16 @@ a {
         width: calc(100% - 60px) !important;
     }
     .mdl-layout-title {
-        font-size: 14px;
+        font-size: 16px;
     }
     .mdl-textfield__input {
-        font-size: 14px;
+        font-size: 16px;
     }
     .mdl-button {
-        font-size: 12px;
+        font-size: 16px;
     }
     .mdl-card__supporting-text {
-        font-size: 12px;
+        font-size: 16px;
     }
     .mdl-textfield {
         width: -webkit-fill-available;
