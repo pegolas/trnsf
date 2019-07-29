@@ -40,8 +40,12 @@ a {
 }
 .mdl-card {
     margin: 10px;
-    width: 300px !important;
+    width: 300px;
     background: #F5F5F5;
+}
+.mdl-card__title img {
+    width: 268px;
+    height: 162px !important;
 }
 .mdl-color--blue-grey-900 {
     background-color: #2d323e!important;
@@ -53,7 +57,7 @@ a {
 .mdl-color--blue-grey-800 {
     background-color: #353a48!important;
 }
-@media (max-width: 479px) {
+@media screen and (max-width:479px) {
     .mdl-cell--11-col {
         width: calc(100% - 60px) !important;
     }
@@ -72,8 +76,17 @@ a {
     .mdl-textfield {
         width: -webkit-fill-available;
     }
-    .loggedin-div, .main-div {
+    .loggedin-div,
+    .main-div {
         width: 80% !important;
+    }
+    .mdl-card.mdl-shadow--2dp {
+        width: 100% !important;
+    }
+    .mdl-card__title img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 .mdl-card__supporting-text {

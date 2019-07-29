@@ -118,7 +118,7 @@ function readTask() {
         document.getElementById("tableContent").innerHTML += `
         <div class="mdl-card mdl-shadow--2dp">
             <div class="mdl-card__title mdl-card--expand">
-                <img src=${taskValue.thumbnail} style="width:268px; height: 162px !important;">
+                <img src=${taskValue.thumbnail}>
             </div>
             <div class="mdl-card__supporting-text" style="text-align: right; color:#039be5 !important">${taskValue.bidang}</div>
             <div class="mdl-card__actions mdl-card--border">
