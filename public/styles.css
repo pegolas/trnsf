@@ -73,7 +73,7 @@ a {
         width: -webkit-fill-available;
     }
     .loggedin-div, .main-div {
-        width: 80%;
+        width: 80% !important;
     }
 }
 .mdl-card__supporting-text {
