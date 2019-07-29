@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Transformasi Bapenda Jabar">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">    
+    <meta name="googlebot" content="noindex">
+    <title>Transformasi Bapenda Jabar</title>
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Bapenda Interactive Database">
+    <meta name="theme-color" content="#303F9F">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Bapenda Interactive Database">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#303F9F">
+
+    <!-- Tile icon for Win8 -->
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <meta name="msapplication-navbutton-color" content="#303F9F">
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+
+    <!-- Firebase Script -->
+    <script src="/__/firebase/6.2.0/firebase-app.js"></script>
+    <script src="/__/firebase/6.2.0/firebase-auth.js"></script>
+    <script src="/__/firebase/6.2.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/6.2.4/firebase-storage.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Material Design Lite -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700&display=swap" rel="stylesheet">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script defer="defer" src="scripts/getmdl-select.min.js"></script>
+    <link rel="stylesheet" href="scripts/getmdl-select.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #view-source {
+            position: fixed;
+            display: block;
+            right: 0;
+            bottom: 0;
+            margin-right: 40px;
+            margin-bottom: 40px;
+            z-index: 900;
+        }
+    </style>
+</head>
+
+<body onload="readTask()">
+    <div id="login_div" class="main-div">
+        <span class="mdl-card__supporting-text"
+        style="color: #039be5 !important; text-align: right; font-weight: 700;">Login to Transformasi Database</span>
+        <div class="mdl-textfield mdl-js-textfield">
+            <input type="email" class="mdl-textfield__input" id="email_field"
+                placeholder="Email...">
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+            <input type="password" class="mdl-textfield__input" id="password_field"
+                placeholder="Password...">
+        </div>
+        <div class="mdl-layout-spacer"></div>
+        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" style="margin-left: 16px" onclick="login()">Login to Account</button>
+    </div>
+
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" id="user_div">
+
+        <header class="mdl-layout__header mdl-color--grey-100 mdl-color-text--black">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">Database Presentasi</span>
+                <div class="mdl-layout-spacer"></div>
+                <button id="iconexit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn" onclick="logout()">
+                    <div class="icon material-icons">exit_to_app</div>
+                    <div class="mdl-tooltip" data-mdl-for="iconexit">Log Out</div>
+                </button>
+            </div>
+        </header>
+
+        <div class="mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+            <header class="drawer-header">
+                <div><img class="avatar" src="kangpenda.png"></div>
+                <div id="user_para" class="mdl-card__supporting-text"
+                style="color: #ffffff !important; text-align: center; font-weight: 700; width: 80%;">
+            </div>
+                <div class="avatar-dropdown">
+                    <div class="mdl-layout-spacer"></div>
+                </div>
+            </header>
+            <nav class="mdl-navigation mdl-color--blue-grey-800">
+                <a class="mdl-navigation__link mdl-color-text--white" href="">
+                    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">library_books</i>
+                    Presentasi</a>
+                <a class="mdl-navigation__link mdl-color-text--white" href="">
+                    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">ondemand_video</i>
+                    Galeri Video</a>
+                <a class="mdl-navigation__link mdl-color-text--white" href="">
+                    <i class="mdl-color-text--blue-grey-400 material-icons"
+                        role="presentation">date_range</i> Schedule</a>
+                <div class="mdl-layout-spacer"></div>
+                <a class="mdl-navigation__link mdl-color-text--white" href="">
+                    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i>
+                    <span class="visuallyhidden">Help</span></a>
+            </nav>
+            <footer class="drawer-footer">
+                <a href=""><img src="logo.png"></a>
+            </footer>
+        </div>
+
+        <main class="mdl-layout__content mdl-color--grey-100">
+
+            <div class="mdl-grid">
+                <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                    <div class="col-md-6" id="firstSection">
+                        <form action="#" id="form" autocomplete="off">
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <input type="text" class="mdl-textfield__input" name="judul" id="judul"
+                                    placeholder="Judul">
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield getmdl-select">
+                                <input type="text" value="" class="mdl-textfield__input" id="bidang" readonly>
+                                <input type="hidden" value="" name="bidang">
+                                <label for="bidang" class="mdl-textfield__label">Bidang</label>
+                                <ul for="bidang" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                    <li class="mdl-menu__item" value="Sekretariat">Sekretariat</li>
+                                    <li class="mdl-menu__item" value="Perencanaan dan Pengembangan">Perencanaan dan Pengembangan</li>
+                                    <li class="mdl-menu__item" value="Pembinaan dan Pengendalian">Pembinaan dan Pengendalian</li>
+                                    <li class="mdl-menu__item" value="Pendapatan I">Pendapatan I</li>
+                                    <li class="mdl-menu__item" value="Pendapatan II">Pendapatan II</li>
+                                    <li class="mdl-menu__item" value="PLOPD">PLOPD</li>
+                                </ul>
+                            </div>
+                            <label class="input-custom-file mdl-button mdl-js-button mdl-js-ripple-effect">
+                                Presentasi
+                                <input type="file" id="fileB">
+                            </label>
+                            <label class="input-custom-file mdl-button mdl-js-button mdl-js-ripple-effect">
+                                Thumbnail
+                                <input type="file" id="fileA">
+                            </label>
+                            <button type="submit" id="buttonA"
+                                class="mdl-button mdl-js-button mdl-js-ripple-effect">Submit</button>
+                            <div id="progress" class="mdl-card__supporting-text"
+                                style="color: #039be5 !important; display: contents; text-align: right; font-weight: 700;">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="tableContent">
+                </div>
+
+            </div>
+        </main>
+    </div>
+    <script src="scripts/getmdl-select-min.js"></script>
+
+</body>
+
+</html>
