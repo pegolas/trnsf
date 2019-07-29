@@ -72,6 +72,9 @@ a {
     .mdl-textfield {
         width: -webkit-fill-available;
     }
+    .loggedin-div, .main-div {
+        width: 80%;
+    }
 }
 .mdl-card__supporting-text {
     padding: 6px 16px !important;
