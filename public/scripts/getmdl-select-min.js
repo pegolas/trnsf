@@ -70,7 +70,6 @@ document.getElementById("form").addEventListener("submit", (e) => {
     elem.innerHTML = 'Uploading Files...';
     var storageRefA = firebase.storage().ref('/thumbnail/' + filenameA);
     createTask(bidang, judul, storageRefA, storageRefB);
-    form.reset();
 });
 
 function createTask(bidang, judul, storageRefA, storageRefB) {
@@ -129,7 +128,6 @@ function createTask(bidang, judul, storageRefA, storageRefB) {
                         var elem = document.getElementById("progress");
                         elem.innerHTML = 'Error';
                     });
-                readTask();
             });
         });
     }
@@ -166,14 +164,12 @@ document.getElementById("form2").addEventListener("submit", (e) => {
 
 function createVideo(video_id, video_judul) {
     counter += 1;
-    var videoYoutube = {
+    firebase.database().ref('youtube/' + counter).set({
         id: counter,
         videoJudul: video_judul,
         videoLink: 'https://www.youtube.com/embed/' + video_id + "?rel=0",
         videoThumbnail: 'https://i.ytimg.com/vi/' + video_id + '/hqdefault.jpg'
-    }
-    db2 = firebase.database().ref("youtube/" + counter);
-    db2.set(videoYoutube);
+    });
     var elem = document.getElementById("progressVideo");
     elem.innerHTML = 'Link Initialized';
     fetch('https://transformasi-bapenda.firebaseio.com/youtube.json')
@@ -196,7 +192,6 @@ function createVideo(video_id, video_judul) {
             var elem = document.getElementById("progressVideo");
             elem.innerHTML = 'Error';
         });
-    readYoutube();
 }
 
 function readYoutube() {
@@ -238,13 +233,12 @@ function deleteVideo(id) {
             firebase.database().ref("datavideo").set(keysSorted);
             var elem = document.getElementById("progressVideo");
             elem.innerHTML = 'Video Deleted Successfully.';
-            readTask();
+            readYoutube();
         })
         .catch(err => {
             var elem = document.getElementById("progress");
             elem.innerHTML = 'Error';
         });
-        readYoutube();
 }
 
 function deleteTask(id) {
