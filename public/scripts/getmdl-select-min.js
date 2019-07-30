@@ -123,6 +123,7 @@ function createTask(bidang, judul, storageRefA, storageRefB) {
                         firebase.database().ref("data").set(keysSorted);
                         var elem = document.getElementById("progress");
                         elem.innerHTML = 'Upload Successful.';
+                        readTask();
                     })
                     .catch(err => {
                         var elem = document.getElementById("progress");
