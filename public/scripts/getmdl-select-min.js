@@ -166,8 +166,9 @@ function readYoutube() {
         <div class="mdl-card__title mdl-card--expand">
                 <img src="https://i.ytimg.com/vi/${ytValue.video_id}/hqdefault.jpg">
             </div>
-            <div class="mdl-card__actions mdl-card--border">
+            <div class="mdl-card__actions mdl-card--border" style="height: 84px;">
             <div class="mdl-card__supporting-text">${ytValue.judul_video}</div>
+            <div><button type="submit" style="float: right;" class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="deleteTask(${ytValue.video_id})">Delete</button></div>
             </div>
         </div>
          `;
