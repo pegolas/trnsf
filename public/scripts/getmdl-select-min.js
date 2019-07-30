@@ -292,6 +292,14 @@ function deleteTask(id) {
         });
 }
 
+var inputpass = document.getElementById("password_field");
+inputpass.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("submitted").click();
+  }
+});
+
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // User is signed in.

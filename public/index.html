@@ -68,12 +68,12 @@
             <input type="password" class="mdl-textfield__input" id="password_field" placeholder="Password...">
         </div>
         <div class="mdl-layout-spacer"></div>
-        <button type="submit"
+        <button type="submit" id="submitted"
             class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect"
             style="display: block; width: -webkit-fill-available; margin: 0 16px; color: #ffffff;" onclick="login()">Sign in to Account</button>
     </div>
 
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" id="user_div">
+     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" id="user_div" style="display: none">
 
         <header class="mdl-layout__header mdl-color--grey-100 mdl-color-text--black">
             <div class="mdl-layout__header-row">
@@ -163,7 +163,7 @@
                 </div>
             </div>
 
-            <div class="mdl-grid" id="youtube_div">
+            <div class="mdl-grid" id="youtube_div" style="display: none">
                 <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
                     <div class="col-md-6">
                         <form action="#" id="form2" autocomplete="off">
