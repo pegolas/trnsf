@@ -54,6 +54,9 @@ a {
     background: #039be5!important;
     color: #ffffff;
 }
+.mdl-layout__header {
+    margin-bottom: 3px !important;
+}
 .mdl-color--blue-grey-800 {
     background-color: #353a48!important;
 }

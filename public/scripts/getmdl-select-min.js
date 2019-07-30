@@ -163,9 +163,11 @@ function readYoutube() {
         var ytValue = datayt.val();
         document.getElementById("youtubeContent").innerHTML += `
         <div class="mdl-card mdl-shadow--2dp">
-            <div class="mdl-card__supporting-text" style="text-align: right; color:#039be5 !important">${ytValue.id}</div>
+        <div class="mdl-card__title mdl-card--expand">
+                <img src="https://i.ytimg.com/vi/${ytValue.video_id}/hqdefault.jpg">
+            </div>
             <div class="mdl-card__actions mdl-card--border">
-            <div class="mdl-card__supporting-text">${ytValue.link}</div>
+            <div class="mdl-card__supporting-text">${ytValue.judul_video}</div>
             </div>
         </div>
          `;
