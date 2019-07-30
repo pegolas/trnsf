@@ -39,22 +39,22 @@ $("#fileB").on("change", function (event) {
 
 $("#video_menu").on('click', function(event) {
     event.preventDefault();
-    document.getElementById("elemenus").innerHTML = "Gallery Videos";
+    document.getElementById("elemenus").innerHTML = "Galeri Video";
     document.getElementById("youtube_div").style.display = "flex";
     document.getElementById("presentasi_div").style.display = "none";
 });
 
 $("#presentasi_menu").on('click', function(event) {
     event.preventDefault();
-    document.getElementById("elemenus").innerHTML = "Presentation Databases";
+    document.getElementById("elemenus").innerHTML = "Database Presentasi";
     document.getElementById("youtube_div").style.display = "none";
     document.getElementById("presentasi_div").style.display = "flex";
 });
 
-
 function onstarted() {
     readTask();
     readYoutube();
+    document.getElementById("elemenus").innerHTML = "Database Presentasi";
 }
 
 document.getElementById("form").addEventListener("submit", (e) => {
@@ -226,6 +226,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
         document.getElementById("user_div").style.display = "block";        
         document.getElementById("youtube_div").style.display = "none";
+        document.getElementById("login_div").style.display = "none";
 
         var user = firebase.auth().currentUser;
 
