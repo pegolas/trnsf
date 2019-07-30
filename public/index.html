@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Transformasi Bapenda Jabar">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex">    
+    <meta name="robots" content="noindex">
     <meta name="googlebot" content="noindex">
     <title>Transformasi Bapenda Jabar</title>
 
@@ -39,7 +39,7 @@
 
     <!-- Material Design Lite -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.light_blue-orange.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600,700&display=swap" rel="stylesheet">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script defer="defer" src="scripts/getmdl-select.min.js"></script>
@@ -61,26 +61,29 @@
 <body onload="onstarted()">
     <div id="login_div" class="main-div">
         <span class="mdl-card__supporting-text"
-        style="color: #039be5 !important; text-align: right; font-weight: 700;">Login to Transformasi Database</span>
+            style="color: #039be5 !important; text-align: right; font-size: 1.3rem; font-weight: 700;">Login to
+            Transformasi Database</span>
         <div class="mdl-textfield mdl-js-textfield">
-            <input type="email" class="mdl-textfield__input" id="email_field"
-                placeholder="Email...">
+            <input type="email" class="mdl-textfield__input" id="email_field" placeholder="Email...">
         </div>
         <div class="mdl-textfield mdl-js-textfield">
-            <input type="password" class="mdl-textfield__input" id="password_field"
-                placeholder="Password...">
+            <input type="password" class="mdl-textfield__input" id="password_field" placeholder="Password...">
         </div>
         <div class="mdl-layout-spacer"></div>
-        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" style="margin-left: 16px" onclick="login()">Login to Account</button>
+        <button type="submit"
+            class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect"
+            style="margin-left: 16px; color: #ffffff;" onclick="login()">Sign in to Account</button>
     </div>
 
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" id="user_div">
 
         <header class="mdl-layout__header mdl-color--grey-100 mdl-color-text--black">
             <div class="mdl-layout__header-row">
-                <span class="mdl-layout-title" id="elemenus" style="color: #ffffff !important; display: contents; text-align: right; font-weight: 600;"></span>
+                <span class="mdl-layout-title" id="elemenus"
+                    style="color: #ffffff !important; display: contents; text-align: right; font-weight: 600;"></span>
                 <div class="mdl-layout-spacer"></div>
-                <button id="iconexit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn" onclick="logout()">
+                <button id="iconexit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn"
+                    onclick="logout()">
                     <div class="icon material-icons">exit_to_app</div>
                     <div class="mdl-tooltip" data-mdl-for="iconexit">Log Out</div>
                 </button>
@@ -91,8 +94,8 @@
             <header class="drawer-header">
                 <div><img class="avatar" src="kangpenda.png"></div>
                 <div id="user_para" class="mdl-card__supporting-text"
-                style="color: #ffffff !important; text-align: center; font-weight: 700; width: 80%;">
-            </div>
+                    style="color: #ffffff !important; text-align: center; font-weight: 700; width: 80%;">
+                </div>
                 <div class="avatar-dropdown">
                     <div class="mdl-layout-spacer"></div>
                 </div>
@@ -105,8 +108,8 @@
                     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">ondemand_video</i>
                     Galeri Video</a>
                 <a class="mdl-navigation__link mdl-color-text--white" href="">
-                    <i class="mdl-color-text--blue-grey-400 material-icons"
-                        role="presentation">date_range</i> Schedule</a>
+                    <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">date_range</i>
+                    Schedule</a>
                 <div class="mdl-layout-spacer"></div>
                 <a class="mdl-navigation__link mdl-color-text--white" href="">
                     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i>
@@ -140,18 +143,20 @@
                                     <li class="mdl-menu__item" value="PLOPD">PLOPD</li>
                                 </ul>
                             </div>
-                            <label class="input-custom-file mdl-button mdl-js-button mdl-js-ripple-effect">
+                            <label
+                                class="input-custom-file mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">
                                 Presentasi
                                 <input type="file" id="fileB">
                             </label>
-                            <label class="input-custom-file mdl-button mdl-js-button mdl-js-ripple-effect">
+                            <label
+                                class="input-custom-file mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">
                                 Thumbnail
                                 <input type="file" id="fileA">
                             </label>
                             <button type="submit" id="buttonA"
-                                class="mdl-button mdl-js-button mdl-js-ripple-effect">Submit</button>
+                                class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored">Submit</button>
                             <div id="progress" class="mdl-card__supporting-text"
-                                style="color: #039be5 !important; display: contents; text-align: right; font-weight: 700;">
+                                style="display: contents; text-align: right; font-weight: 700;">
                             </div>
                         </form>
                     </div>
@@ -161,8 +166,46 @@
             </div>
 
             <div class="mdl-grid" id="youtube_div">
-                    <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="youtubeContent">
+                    <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                            <div class="col-md-6">
+                                <form action="#" id="form2" autocomplete="off">
+                                    <div class="mdl-textfield mdl-js-textfield">
+                                        <input type="text" class="mdl-textfield__input" name="judul2" id="judul2"
+                                            placeholder="Judul">
+                                    </div>
+                                    <div class="mdl-textfield mdl-js-textfield getmdl-select">
+                                        <input type="text" value="" class="mdl-textfield__input" id="bidang2" readonly>
+                                        <input type="hidden" value="" name="bidang2">
+                                        <label for="bidang2" class="mdl-textfield__label">Bidang</label>
+                                        <ul for="bidang" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                            <li class="mdl-menu__item" value="Sekretariat">Sekretariat</li>
+                                            <li class="mdl-menu__item" value="Perencanaan dan Pengembangan">Perencanaan dan Pengembangan</li>
+                                            <li class="mdl-menu__item" value="Pembinaan dan Pengendalian">Pembinaan dan Pengendalian</li>
+                                            <li class="mdl-menu__item" value="Pendapatan I">Pendapatan I</li>
+                                            <li class="mdl-menu__item" value="Pendapatan II">Pendapatan II</li>
+                                            <li class="mdl-menu__item" value="PLOPD">PLOPD</li>
+                                        </ul>
+                                    </div>
+                                    <label
+                                        class="input-custom-file mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">
+                                        Presentasi
+                                        <input type="file" id="fileB2">
+                                    </label>
+                                    <label
+                                        class="input-custom-file mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">
+                                        Thumbnail
+                                        <input type="file" id="fileA2">
+                                    </label>
+                                    <button type="submit" id="buttonA2"
+                                        class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored">Submit</button>
+                                    <div id="progress" class="mdl-card__supporting-text"
+                                        style="display: contents; text-align: right; font-weight: 700;">
+                                    </div>
+                                </form>
+                            </div>
                         </div>
+                <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="youtubeContent">
+                </div>
             </div>
 
         </main>
