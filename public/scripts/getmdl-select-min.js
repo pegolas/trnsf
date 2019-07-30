@@ -39,14 +39,14 @@ $("#fileB").on("change", function (event) {
     $("#fileA").prop("disabled", false);
 });
 
-$("#video_menu").on('click', function(event) {
+$("#video_menu").on('click', function (event) {
     event.preventDefault();
     document.getElementById("elemenus").innerHTML = "Galeri Video";
     document.getElementById("youtube_div").style.display = "flex";
     document.getElementById("presentasi_div").style.display = "none";
 });
 
-$("#presentasi_menu").on('click', function(event) {
+$("#presentasi_menu").on('click', function (event) {
     event.preventDefault();
     document.getElementById("elemenus").innerHTML = "Database Presentasi";
     document.getElementById("youtube_div").style.display = "none";
@@ -157,6 +157,48 @@ function readTask() {
     });
 }
 
+document.getElementById("form2").addEventListener("submit", (e) => {
+    var video_id = document.getElementById("video_id").value;
+    var video_judul = document.getElementById("video_judul").value;
+    e.preventDefault();
+    createVideo(video_id, video_judul);
+});
+
+function createVideo(video_id, video_judul) {
+    counter += 1;
+    var videoYoutube = {
+        id: counter,
+        videoJudul: video_judul,
+        videoLink: 'https://www.youtube.com/embed/' + video_id + "?rel=0",
+        videoThumbnail: 'https://i.ytimg.com/vi/' + video_id + '/hqdefault.jpg'
+    }
+    db2 = firebase.database().ref("youtube/" + counter);
+    db2.set(videoYoutube);
+    var elem = document.getElementById("progressVideo");
+    elem.innerHTML = 'Link Initialized';
+    fetch('https://transformasi-bapenda.firebaseio.com/youtube.json')
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            var ObjectOfObjects = data;
+            let arrayOfObjects = Object.keys(ObjectOfObjects).map(key => {
+                let arrays = ObjectOfObjects[key]
+                arrays.key = key
+                return arrays
+            })
+            var keysSorted = arrayOfObjects.sort(function (a, b) { return b.id - a.id; });
+            firebase.database().ref("datavideo").set(keysSorted);
+            var elem = document.getElementById("progressVideo");
+            elem.innerHTML = 'Video Submitted';
+        })
+        .catch(err => {
+            var elem = document.getElementById("progressVideo");
+            elem.innerHTML = 'Error';
+        });
+    readYoutube();
+}
+
 function readYoutube() {
     var youtube = firebase.database().ref("youtube/");
     youtube.on("child_added", function (datayt) {
@@ -164,15 +206,45 @@ function readYoutube() {
         document.getElementById("youtubeContent").innerHTML += `
         <div class="mdl-card mdl-shadow--2dp">
         <div class="mdl-card__title mdl-card--expand">
-                <img src="https://i.ytimg.com/vi/${ytValue.video_id}/hqdefault.jpg">
+                <img src="${ytValue.videoThumbnail}">
             </div>
             <div class="mdl-card__actions mdl-card--border" style="height: 84px;">
-            <div class="mdl-card__supporting-text">${ytValue.judul_video}</div>
-            <div><button type="submit" style="float: right;" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" onclick="deleteTask(${ytValue.video_id})">Delete</button></div>
+            <div class="mdl-card__supporting-text">${ytValue.videoJudul}</div>
+            <div><button type="submit" style="float: right;" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" onclick="deleteVideo(${ytValue.id})">Delete</button></div>
             </div>
         </div>
          `;
     });
+}
+
+function deleteVideo(id) {
+    var deleteRef = firebase.database().ref("youtube/" + id);
+    deleteRef.remove();
+    document.getElementById("youtubeContent").innerHTML = '';
+    var elem = document.getElementById("progressVideo");
+    elem.innerHTML = 'Link Initialized';
+    fetch('https://transformasi-bapenda.firebaseio.com/youtube.json')
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            var ObjectOfObjects = data;
+            let arrayOfObjects = Object.keys(ObjectOfObjects).map(key => {
+                let ar = ObjectOfObjects[key]
+                ar.key = key
+                return ar
+            })
+            var keysSorted = arrayOfObjects.sort(function (a, b) { return b.id - a.id; });
+            firebase.database().ref("datavideo").set(keysSorted);
+            var elem = document.getElementById("progressVideo");
+            elem.innerHTML = 'Video Deleted Successfully.';
+            readTask();
+        })
+        .catch(err => {
+            var elem = document.getElementById("progress");
+            elem.innerHTML = 'Error';
+        });
+        readYoutube();
 }
 
 function deleteTask(id) {
@@ -229,7 +301,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // User is signed in.
 
-        document.getElementById("user_div").style.display = "block";        
+        document.getElementById("user_div").style.display = "block";
         document.getElementById("youtube_div").style.display = "none";
         document.getElementById("login_div").style.display = "none";
 

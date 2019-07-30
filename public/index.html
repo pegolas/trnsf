@@ -92,7 +92,7 @@
 
         <div class="mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
             <header class="drawer-header">
-                <div><img class="avatar" src="kangpenda.png"></div>
+                <div><a href=""><img class="avatar" src="kangpenda.png"></a></div>
                 <div id="user_para" class="mdl-card__supporting-text"
                     style="color: #ffffff !important; text-align: center; font-weight: 700; width: 80%;">
                 </div>
@@ -116,7 +116,7 @@
                     <span class="visuallyhidden">Help</span></a>
             </nav>
             <footer class="drawer-footer">
-                <a href=""><img src="logo.png"></a>
+                <img src="logo.png">
             </footer>
         </div>
 
@@ -166,44 +166,23 @@
             </div>
 
             <div class="mdl-grid" id="youtube_div">
-                    <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-                            <div class="col-md-6">
-                                <form action="#" id="form2" autocomplete="off">
-                                    <div class="mdl-textfield mdl-js-textfield">
-                                        <input type="text" class="mdl-textfield__input" name="judul2" id="judul2"
-                                            placeholder="Judul">
-                                    </div>
-                                    <div class="mdl-textfield mdl-js-textfield getmdl-select">
-                                        <input type="text" value="" class="mdl-textfield__input" id="bidang2" readonly>
-                                        <input type="hidden" value="" name="bidang2">
-                                        <label for="bidang2" class="mdl-textfield__label">Bidang</label>
-                                        <ul for="bidang" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                                            <li class="mdl-menu__item" value="Sekretariat">Sekretariat</li>
-                                            <li class="mdl-menu__item" value="Perencanaan dan Pengembangan">Perencanaan dan Pengembangan</li>
-                                            <li class="mdl-menu__item" value="Pembinaan dan Pengendalian">Pembinaan dan Pengendalian</li>
-                                            <li class="mdl-menu__item" value="Pendapatan I">Pendapatan I</li>
-                                            <li class="mdl-menu__item" value="Pendapatan II">Pendapatan II</li>
-                                            <li class="mdl-menu__item" value="PLOPD">PLOPD</li>
-                                        </ul>
-                                    </div>
-                                    <label
-                                        class="input-custom-file mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">
-                                        Presentasi
-                                        <input type="file" id="fileB2">
-                                    </label>
-                                    <label
-                                        class="input-custom-file mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">
-                                        Thumbnail
-                                        <input type="file" id="fileA2">
-                                    </label>
-                                    <button type="submit" id="buttonA2"
-                                        class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored">Submit</button>
-                                    <div id="progress" class="mdl-card__supporting-text"
-                                        style="display: contents; text-align: right; font-weight: 700;">
-                                    </div>
-                                </form>
+                <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                    <div class="col-md-6">
+                        <form action="#" id="form2" autocomplete="off">
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <input type="text" class="mdl-textfield__input" name="video_judul" id="video_judul"
+                                    placeholder="Title">
                             </div>
-                        </div>
+                            <div class="mdl-textfield mdl-js-textfield">
+                                <input type="text" class="mdl-textfield__input" name="video_id" id="video_id"
+                                    placeholder="Video ID">
+                            </div>
+                            <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored">Submit</button>
+                            <div id="progressVideo" class="mdl-card__supporting-text" style="display: contents; text-align: right; font-weight: 700;">
+                            </div>
+                        </form>
+                    </div>
+                </div>
                 <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="youtubeContent">
                 </div>
             </div>
