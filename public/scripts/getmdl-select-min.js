@@ -24,6 +24,7 @@ $(document).ready(function () {
 });
 
 $("#fileA").on("change", function (event) {
+    event.preventDefault();
     selectedFileA = event.target.files[0];
     var elem = document.getElementById("progress");
     elem.innerHTML = 'Image is ' + selectedFileA.name;
@@ -31,6 +32,7 @@ $("#fileA").on("change", function (event) {
 });
 
 $("#fileB").on("change", function (event) {
+    event.preventDefault();
     selectedFileB = event.target.files[0];
     var elem = document.getElementById("progress");
     elem.innerHTML = 'File is ' + selectedFileB.name;
