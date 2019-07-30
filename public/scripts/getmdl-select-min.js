@@ -299,6 +299,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         document.getElementById("user_div").style.display = "block";
         document.getElementById("youtube_div").style.display = "none";
         document.getElementById("login_div").style.display = "none";
+        document.getElementsByTagName("body")[0].style.background = "#ffffff";
 
         var user = firebase.auth().currentUser;
 
@@ -315,6 +316,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         document.getElementById("user_div").style.display = "none";
         document.getElementById("youtube_div").style.display = "none";
         document.getElementById("login_div").style.display = "block";
+        document.getElementsByTagName("body")[0].style.background = "radial-gradient(circle, #039BE5, #01579b)";
 
     }
 });

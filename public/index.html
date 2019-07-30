@@ -60,19 +60,17 @@
 
 <body onload="onstarted()">
     <div id="login_div" class="main-div">
-        <span class="mdl-card__supporting-text"
-            style="color: #039be5 !important; text-align: right; font-size: 1.3rem; font-weight: 700;">Login to
-            Transformasi Database</span>
-        <div class="mdl-textfield mdl-js-textfield">
+        <div><img class="avatar" style="margin-bottom: 1.5em" src="logo.png"></div>
+        <div class="mdl-textfield mdl-js-textfield" style="width: -webkit-fill-available !important;">
             <input type="email" class="mdl-textfield__input" id="email_field" placeholder="Email...">
         </div>
-        <div class="mdl-textfield mdl-js-textfield">
+        <div class="mdl-textfield mdl-js-textfield" style="width: -webkit-fill-available !important;">
             <input type="password" class="mdl-textfield__input" id="password_field" placeholder="Password...">
         </div>
         <div class="mdl-layout-spacer"></div>
         <button type="submit"
             class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect"
-            style="margin-left: 16px; color: #ffffff;" onclick="login()">Sign in to Account</button>
+            style="display: block; width: -webkit-fill-available; margin: 0 16px; color: #ffffff;" onclick="login()">Sign in to Account</button>
     </div>
 
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" id="user_div">
@@ -90,7 +88,7 @@
             </div>
         </header>
 
-        <div class="mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+        <div class="mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50" style="position: fixed">
             <header class="drawer-header">
                 <div><a href=""><img class="avatar" src="kangpenda.png"></a></div>
                 <div id="user_para" class="mdl-card__supporting-text"
