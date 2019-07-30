@@ -185,7 +185,7 @@ function createVideo(video_id, video_judul) {
                 return arrays
             })
             var keysSorted = arrayOfObjects.sort(function (a, b) { return b.id - a.id; });
-            firebase.database().ref("datavideo").set(keysSorted);
+            firebase.database().ref("video").set(keysSorted);
             var elem = document.getElementById("progressVideo");
             elem.innerHTML = 'Video Submitted';
         })
@@ -231,7 +231,7 @@ function deleteVideo(id) {
                 return ar
             })
             var keysSorted = arrayOfObjects.sort(function (a, b) { return b.id - a.id; });
-            firebase.database().ref("datavideo").set(keysSorted);
+            firebase.database().ref("video").set(keysSorted);
             var elem = document.getElementById("progressVideo");
             elem.innerHTML = 'Video Deleted Successfully.';
             readYoutube();
