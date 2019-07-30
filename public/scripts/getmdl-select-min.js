@@ -10,6 +10,8 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+var provider = new firebase.auth.GoogleAuthProvider();
+firebase.auth().languageCode = 'id';
 var d = new Date();
 var t = d.getTime();
 var counter = t;
@@ -34,6 +36,26 @@ $("#fileB").on("change", function (event) {
     elem.innerHTML = 'File is ' + selectedFileB.name;
     $("#fileA").prop("disabled", false);
 });
+
+$("#video_menu").on('click', function(event) {
+    event.preventDefault();
+    document.getElementById("elemenus").innerHTML = "Gallery Videos";
+    document.getElementById("youtube_div").style.display = "flex";
+    document.getElementById("presentasi_div").style.display = "none";
+});
+
+$("#presentasi_menu").on('click', function(event) {
+    event.preventDefault();
+    document.getElementById("elemenus").innerHTML = "Presentation Databases";
+    document.getElementById("youtube_div").style.display = "none";
+    document.getElementById("presentasi_div").style.display = "flex";
+});
+
+
+function onstarted() {
+    readTask();
+    readYoutube();
+}
 
 document.getElementById("form").addEventListener("submit", (e) => {
     var bidang = document.getElementById("bidang").value;
@@ -133,6 +155,21 @@ function readTask() {
     });
 }
 
+function readYoutube() {
+    var youtube = firebase.database().ref("youtube/");
+    youtube.on("child_added", function (datayt) {
+        var ytValue = datayt.val();
+        document.getElementById("youtubeContent").innerHTML += `
+        <div class="mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__supporting-text" style="text-align: right; color:#039be5 !important">${ytValue.id}</div>
+            <div class="mdl-card__actions mdl-card--border">
+            <div class="mdl-card__supporting-text">${ytValue.link}</div>
+            </div>
+        </div>
+         `;
+    });
+}
+
 function deleteTask(id) {
     var deleteRef = firebase.database().ref("presentasi/" + id);
     deleteRef.once("value")
@@ -183,48 +220,49 @@ function deleteTask(id) {
         });
 }
 
-firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-      // User is signed in.
-  
-      document.getElementById("user_div").style.display = "block";
-      document.getElementById("login_div").style.display = "none";
-  
-      var user = firebase.auth().currentUser;
-  
-      if(user != null){
-  
-        var email_id = user.email;
-        document.getElementById("user_para").innerHTML = email_id;
-  
-      }
-  
+        // User is signed in.
+
+        document.getElementById("user_div").style.display = "block";        
+        document.getElementById("youtube_div").style.display = "none";
+
+        var user = firebase.auth().currentUser;
+
+        if (user != null) {
+
+            var email_id = user.email;
+            document.getElementById("user_para").innerHTML = email_id;
+
+        }
+
     } else {
-      // No user is signed in.
-  
-      document.getElementById("user_div").style.display = "none";
-      document.getElementById("login_div").style.display = "block";
-  
+        // No user is signed in.
+
+        document.getElementById("user_div").style.display = "none";
+        document.getElementById("youtube_div").style.display = "none";
+        document.getElementById("login_div").style.display = "block";
+
     }
-  });
-  
-  function login(){
-  
+});
+
+function login() {
+
     var userEmail = document.getElementById("email_field").value;
     var userPass = document.getElementById("password_field").value;
-  
-    firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-  
-      window.alert("Error : " + errorMessage);
-  
-      // ...
+
+    firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+
+        window.alert("Error : " + errorMessage);
+
+        // ...
     });
-  
-  }
-  
-  function logout(){
+
+}
+
+function logout() {
     firebase.auth().signOut();
-  }
+}

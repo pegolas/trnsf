@@ -58,7 +58,7 @@
     </style>
 </head>
 
-<body onload="readTask()">
+<body onload="onstarted()">
     <div id="login_div" class="main-div">
         <span class="mdl-card__supporting-text"
         style="color: #039be5 !important; text-align: right; font-weight: 700;">Login to Transformasi Database</span>
@@ -78,7 +78,7 @@
 
         <header class="mdl-layout__header mdl-color--grey-100 mdl-color-text--black">
             <div class="mdl-layout__header-row">
-                <span class="mdl-layout-title">Database Presentasi</span>
+                <span class="mdl-layout-title" id="elemenus" style="color: #ffffff !important; display: contents; text-align: right; font-weight: 600;"></span>
                 <div class="mdl-layout-spacer"></div>
                 <button id="iconexit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn" onclick="logout()">
                     <div class="icon material-icons">exit_to_app</div>
@@ -98,10 +98,10 @@
                 </div>
             </header>
             <nav class="mdl-navigation mdl-color--blue-grey-800">
-                <a class="mdl-navigation__link mdl-color-text--white" href="">
+                <a class="mdl-navigation__link mdl-color-text--white" id="presentasi_menu" href=" ">
                     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">library_books</i>
                     Presentasi</a>
-                <a class="mdl-navigation__link mdl-color-text--white" href="">
+                <a class="mdl-navigation__link mdl-color-text--white" id="video_menu" href=" ">
                     <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">ondemand_video</i>
                     Galeri Video</a>
                 <a class="mdl-navigation__link mdl-color-text--white" href="">
@@ -119,7 +119,7 @@
 
         <main class="mdl-layout__content mdl-color--grey-100">
 
-            <div class="mdl-grid">
+            <div class="mdl-grid" id="presentasi_div">
                 <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
                     <div class="col-md-6" id="firstSection">
                         <form action="#" id="form" autocomplete="off">
@@ -156,13 +156,18 @@
                         </form>
                     </div>
                 </div>
-
                 <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="tableContent">
                 </div>
-
             </div>
+
+            <div class="mdl-grid" id="youtube_div">
+                    <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="youtubeContent">
+                        </div>
+            </div>
+
         </main>
     </div>
+
     <script src="scripts/getmdl-select-min.js"></script>
 
 </body>
