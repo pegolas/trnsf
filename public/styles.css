@@ -39,10 +39,13 @@ a {
     width: 100%;
 }
 .mdl-card {
-    margin: 12px;
+    margin: 6px;
     width: 300px;
     background: #F5F5F5;
     font-weight: 400;
+}
+.mdl-button {
+    text-transform: capitalize;
 }
 .mdl-card__title img {
     width: 268px;
@@ -94,8 +97,9 @@ a {
     }
 }
 .mdl-card__supporting-text {
-    padding: 6px 10px !important;
+    padding: 6px 0px !important;
     color: rgb(0, 0, 0) !important;
+    width: 100%;
 }
 .mdl-button--file input {
     cursor: pointer;
@@ -125,7 +129,9 @@ label.input-custom-file input[type=file] {
     background:rgb(33,150,243) !important;
 }
 .mdl-card__actions {
-    height: 52px;
+    height: 118px;
+    margin: 0;
+    padding: 8px 16px;
 }
 .mdl-color-text--blue-grey-400 {
     color:rgb(33,150,243) !important;

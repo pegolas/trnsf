@@ -144,12 +144,10 @@ function readTask() {
                 <img src=${taskValue.thumbnail}>
             </div>
             <div class="mdl-card__actions">
-            <div class="mdl-card__supporting-text">${taskValue.judul}</div>
-            </div>
+            <div class="mdl-card__supporting-text mdl-card--border">${taskValue.judul}</div>
             <div class="mdl-card__supporting-text" style="text-align: right; color:rgb(33,150,243) !important">${taskValue.bidang}</div>
-            <div class="mdl-card__actions mdl-card--border">
-                <button onclick='window.open("${taskValue.link}")' class="mdl-button mdl-js-button mdl-js-ripple-effect">File</button>
-                <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="deleteTask(${taskValue.id})">Delete</button>
+            <button onclick='window.open("${taskValue.link}")' class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"><i class="material-icons">description</i></button>
+            <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="deleteTask(${taskValue.id})"><i class="material-icons">delete_forever</i></button>
             </div>
         </div>
          `;
@@ -204,9 +202,9 @@ function readYoutube() {
         <div class="mdl-card__title mdl-card--expand">
                 <img src="${ytValue.videoThumbnail}">
             </div>
-            <div class="mdl-card__actions mdl-card--border" style="height: 84px;">
-            <div class="mdl-card__supporting-text">${ytValue.videoJudul}</div>
-            <div><button type="submit" style="float: right;" class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="deleteVideo(${ytValue.id})">Delete</button></div>
+            <div class="mdl-card__actions" style="height: 98px;">
+            <div class="mdl-card__supporting-text mdl-card--border" style="margin-bottom: 10px;">${ytValue.videoJudul}</div>
+            <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="deleteTask(${ytValue.id})"><i class="material-icons">delete_forever</i></button>
             </div>
         </div>
          `;
