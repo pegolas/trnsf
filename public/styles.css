@@ -23,7 +23,7 @@ html {
 }
 .mdl-button {
     font-family: "Muli","Helvetica",sans-serif;
-    font-weight: 700;
+    font-weight: 600;
 }
 .mdl-textfield__input {
     font-family: "Muli","Helvetica",sans-serif;
@@ -42,6 +42,7 @@ a {
     margin: 12px;
     width: 300px;
     background: #F5F5F5;
+    font-weight: 400;
 }
 .mdl-card__title img {
     width: 268px;
@@ -51,7 +52,7 @@ a {
     background-color: #2d323e!important;
 }
 .mdl-layout__header-row {
-    background: #039be5!important;
+    background:rgb(33,150,243) !important;
     color: #ffffff;
 }
 .mdl-layout__header {
@@ -93,7 +94,7 @@ a {
     }
 }
 .mdl-card__supporting-text {
-    padding: 6px 16px !important;
+    padding: 6px 10px !important;
     color: rgb(0, 0, 0) !important;
 }
 .mdl-button--file input {
@@ -121,13 +122,13 @@ label.input-custom-file input[type=file] {
 }
 .mdl-layout__header .mdl-layout__drawer-button {
     color: rgb(255, 255, 255) !important;
-    background: #039be5!important;
+    background:rgb(33,150,243) !important;
 }
 .mdl-card__actions {
-    height: 60px;
+    height: 52px;
 }
 .mdl-color-text--blue-grey-400 {
-    color: #039be5 !important;
+    color:rgb(33,150,243) !important;
 }
 footer.drawer-footer {
     position: absolute;

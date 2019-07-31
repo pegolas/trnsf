@@ -143,10 +143,10 @@ function readTask() {
             <div class="mdl-card__title mdl-card--expand">
                 <img src=${taskValue.thumbnail}>
             </div>
-            <div class="mdl-card__supporting-text" style="text-align: right; color:#039be5 !important">${taskValue.bidang}</div>
-            <div class="mdl-card__actions mdl-card--border">
+            <div class="mdl-card__actions">
             <div class="mdl-card__supporting-text">${taskValue.judul}</div>
             </div>
+            <div class="mdl-card__supporting-text" style="text-align: right; color:rgb(33,150,243) !important">${taskValue.bidang}</div>
             <div class="mdl-card__actions mdl-card--border">
                 <button onclick='window.open("${taskValue.link}")' class="mdl-button mdl-js-button mdl-js-ripple-effect">File</button>
                 <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="deleteTask(${taskValue.id})">Delete</button>
@@ -206,7 +206,7 @@ function readYoutube() {
             </div>
             <div class="mdl-card__actions mdl-card--border" style="height: 84px;">
             <div class="mdl-card__supporting-text">${ytValue.videoJudul}</div>
-            <div><button type="submit" style="float: right;" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored" onclick="deleteVideo(${ytValue.id})">Delete</button></div>
+            <div><button type="submit" style="float: right;" class="mdl-button mdl-js-button mdl-js-ripple-effect" onclick="deleteVideo(${ytValue.id})">Delete</button></div>
             </div>
         </div>
          `;
