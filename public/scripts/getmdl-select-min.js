@@ -18,6 +18,16 @@ var counter = t;
 var selectedFileA;
 var selectedFileB;
 
+
+if (window.matchMedia('(max-width: 479px)').matches) {
+    function close() {
+        var d = document.querySelector('.mdl-layout');
+        d.MaterialLayout.toggleDrawer();
+    }
+    document.querySelector('.mdl-layout__drawer, .mdl-layout__obfuscator').addEventListener('click', close);
+} else {
+};
+
 $(document).ready(function () {
     $('#buttonA').attr("disabled", true);
     $("#fileA").prop("disabled", true);
@@ -311,17 +321,15 @@ function deleteTask(id) {
 }
 
 var inputpass = document.getElementById("password_field");
-inputpass.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-   event.preventDefault();
-   document.getElementById("submitted").click();
-  }
+inputpass.addEventListener("keyup", function (event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("submitted").click();
+    }
 });
 
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        // User is signed in.
-
         document.getElementById("user_div").style.display = "block";
         document.getElementById("youtube_div").style.display = "none";
         document.getElementById("login_div").style.display = "none";
@@ -337,8 +345,6 @@ firebase.auth().onAuthStateChanged(function (user) {
         }
 
     } else {
-        // No user is signed in.
-
         document.getElementById("user_div").style.display = "none";
         document.getElementById("youtube_div").style.display = "none";
         document.getElementById("login_div").style.display = "block";
@@ -353,13 +359,10 @@ function login() {
     var userPass = document.getElementById("password_field").value;
 
     firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function (error) {
-        // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
 
         window.alert("Error : " + errorMessage);
-
-        // ...
     });
 
 }
