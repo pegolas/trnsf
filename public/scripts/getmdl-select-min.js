@@ -108,7 +108,7 @@ function createTask(bidang, judul, storageRefA, storageRefB) {
     uploadTaskA.on('state_changed', function (snapshot) {
     }, function (error) {
         var elem = document.getElementById("progress");
-        elem.innerHTML = 'Error';
+        elem.innerHTML = error;
     }, function () {
         uploadTaskA.snapshot.ref.getDownloadURL().then(function (thumbnail) {
             task(thumbnail)
@@ -118,7 +118,7 @@ function createTask(bidang, judul, storageRefA, storageRefB) {
         uploadTaskB.on('state_changed', function (snapshot) {
         }, function (error) {
             var elem = document.getElementById("progress");
-            elem.innerHTML = 'Error';
+            elem.innerHTML = error;
         }, function () {
             uploadTaskB.snapshot.ref.getDownloadURL().then(function (link) {
                 counter += 1;
@@ -157,7 +157,7 @@ function createTask(bidang, judul, storageRefA, storageRefB) {
                     })
                     .catch(err => {
                         var elem = document.getElementById("progress");
-                        elem.innerHTML = 'Error';
+                        elem.innerHTML = err;
                     });
             });
         });
@@ -219,7 +219,7 @@ function createVideo(video_id, video_judul) {
         })
         .catch(err => {
             var elem = document.getElementById("progressVideo");
-            elem.innerHTML = 'Error';
+            elem.innerHTML = err
         });
 }
 
@@ -265,8 +265,8 @@ function deleteVideo(id) {
             readYoutube();
         })
         .catch(err => {
-            var elem = document.getElementById("progress");
-            elem.innerHTML = 'Error';
+            var elem = document.getElementById("progressVideo");
+            elem.innerHTML = err;
         });
 }
 
@@ -281,7 +281,7 @@ function deleteTask(id) {
                 elem.innerHTML = 'File Deleted Successfully.';
             }).catch(function (error) {
                 var elem = document.getElementById("progress");
-                elem.innerHTML = 'Error';
+                elem.innerHTML = error;
             });
             var thumbRef = snapshot.child("thumbnail").val();
             var thumbDel = firebase.storage().refFromURL(thumbRef);
@@ -290,7 +290,7 @@ function deleteTask(id) {
                 elem.innerHTML = 'Image Deleted Successfully.';
             }).catch(function (error) {
                 var elem = document.getElementById("progress");
-                elem.innerHTML = 'Error';
+                elem.innerHTML = error;
             });
         });
     deleteRef.remove();
@@ -316,7 +316,7 @@ function deleteTask(id) {
         })
         .catch(err => {
             var elem = document.getElementById("progress");
-            elem.innerHTML = 'Error';
+            elem.innerHTML = err;
         });
 }
 
