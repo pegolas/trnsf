@@ -53,6 +53,26 @@ $("#presentasi_menu").on('click', function (event) {
     document.getElementById("presentasi_div").style.display = "flex";
 });
 
+function deleteTasks(id) {
+    if (confirm("Are you sure?")) {
+        deleteTask(id);
+    }
+    else {
+        var elem = document.getElementById("progress");
+        elem.innerHTML = 'Canceled.';
+    }
+}
+
+function deleteVideos(id) {
+    if (confirm("Are you sure?")) {
+        deleteVideo(id);
+    }
+    else {
+        var elem = document.getElementById("progressVideo");
+        elem.innerHTML = 'Canceled.';
+    }
+}
+
 function onstarted() {
     readTask();
     readYoutube();
@@ -147,7 +167,7 @@ function readTask() {
             <div class="mdl-card__supporting-text mdl-card--border">${taskValue.judul}</div>
             <div class="mdl-card__supporting-text" style="text-align: right; color:rgb(33,150,243) !important">${taskValue.bidang}</div>
             <button onclick='window.open("${taskValue.link}")' class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"><i class="material-icons">description</i></button>
-            <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="deleteTask(${taskValue.id})"><i class="material-icons">delete_forever</i></button>
+            <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="deleteTasks(${taskValue.id})"><i class="material-icons">delete_forever</i></button>
             </div>
         </div>
          `;
@@ -204,7 +224,7 @@ function readYoutube() {
             </div>
             <div class="mdl-card__actions" style="height: 98px;">
             <div class="mdl-card__supporting-text mdl-card--border" style="margin-bottom: 10px;">${ytValue.videoJudul}</div>
-            <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="deleteTask(${ytValue.id})"><i class="material-icons">delete_forever</i></button>
+            <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="deleteVideos(${ytValue.id})"><i class="material-icons">delete_forever</i></button>
             </div>
         </div>
          `;
