@@ -58,7 +58,7 @@ $("#video_menu").on('click', function (event) {
 
 $("#presentasi_menu").on('click', function (event) {
     event.preventDefault();
-    document.getElementById("elemenus").innerHTML = "Database Presentasi";
+    document.getElementById("elemenus").innerHTML = "Arsip Presentasi";
     document.getElementById("youtube_div").style.display = "none";
     document.getElementById("presentasi_div").style.display = "flex";
 });
